@@ -2,12 +2,17 @@ public class StringCalculator {
 
     public static int Add(String numbers) throws Exception {
         String[] charstab = numbers.split(";|,|\n"); // numbers spliting by ',' or '\n' or ';'
-        String[] negativetab = numbers.split("-|,-");
 
-        if(numbers.startsWith("-")||numbers.contains("-")||numbers.contains(",-"))
+        String negatives = ""; // make a new empty string
+        for (int i = 0; i<charstab.length; i++)
         {
-            throw new Exception("Negatives not allowed"); // Expecction if we have negative number
+            if (charstab[i].contains("-")) // when we get negative number we add it to new string
+                negatives += "," + charstab[i]; // add to string
         }
+        if (!negatives.isEmpty()) throw new IllegalArgumentException("Negatives not allowed: " + negatives.substring(1)); // show in Expection negative numbers
+
+
+
 
         if(numbers.startsWith("//")||numbers.startsWith("\n")) // if it starts with '//' or '\n' do that
         {

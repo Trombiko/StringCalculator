@@ -30,8 +30,10 @@ public class StringCalculator {
             } else // If we have more then 1 value we have to return sum of them
             {
                 int sum = 0;
-                for (int i = 0; i < charstab.length; i++) {
-                    sum += Integer.parseInt(charstab[i]);  // adding the following numbers we get on input
+                for (int i = 0; i < charstab.length; i++)
+                {
+                    if(Integer.parseInt(charstab[i]) < 1001) // we ignore values > 1000
+                        sum += Integer.parseInt(charstab[i]);  // adding the following numbers we get on input only if number is lower than 1001
                 }
                 return sum; // return sum of input numbers
             }

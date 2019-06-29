@@ -39,10 +39,19 @@ public class StringCalculatorTest {
         assertEquals(stringCalculator.Add("\n4,5,6") , 15); // test for 3 input values starting with \n
     }
 
+/*
     @Test
     public void checkNegativesNumbers() throws Exception // Checking Add method with negatives numbers
     {
         assertEquals(stringCalculator.Add("-1,2,3,4") , 8); // test for 4 input values include -1 on start
         assertEquals(stringCalculator.Add("4,-5,6") , 5); // test for 3 input values include negative number in the middle
     }
+*/
+
+    @Test
+    public void weCanUseOnlyLessThanThousandValues() throws Exception // Check that we can use only values < 1001
+    {
+        assertEquals(stringCalculator.Add("1001,2"), 2); // 1001 should be ignored
+    }
+
 }

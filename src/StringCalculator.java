@@ -3,7 +3,7 @@ public class StringCalculator
 
     public static int Add(String numbers)
     {
-        String[] charstab = numbers.split(",");
+        String[] charstab = numbers.split(",|\n"); // numbers spliting by ',' or '\n'
 
         if (numbers.isEmpty())  // Checking if we have empty string that we return 0
         {

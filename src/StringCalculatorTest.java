@@ -32,10 +32,11 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void unknownAmountOfInputNumbers() // Checking Add method, if it handle an unknown amount of numbers and using NEW LINES
+    public void unknownAmountOfInputNumbers() // Checking Add method, if it handle an unknown amount of numbers and using NEW LINES and others delimiters
     {
-        assertEquals(stringCalculator.Add("1\n2,3") , 6); // test for 3 input values when we use NEW LINE
-        assertEquals(stringCalculator.Add("4,5,6,7") , 22); // test for 4 input values
+        assertEquals(stringCalculator.Add("1;2,3") , 6); // test for 3 input values when we use NEW LINE
+        assertEquals(stringCalculator.Add("//\n4,5,6,7") , 22); // test for 4 input values starting with //
+        assertEquals(stringCalculator.Add("\n4,5,6") , 15); // test for 3 input values starting with \n
     }
 
 

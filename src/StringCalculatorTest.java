@@ -31,8 +31,15 @@ public class StringCalculatorTest {
         assertEquals(stringCalculator.Add("1,2"), 3); // Values comes from task 1
     }
 
+    @Test
+    public void unknownAmountOfInputNumbers() // Checking Add method, if it handle an unknown amount of numbers
+    {
+        assertEquals(stringCalculator.Add("1,2,3") , 6); // test for 3 input values
+        assertEquals(stringCalculator.Add("4,5,6,7") , 22); // test for 4 input values
+    }
 
 
 
-    
+
+
 }

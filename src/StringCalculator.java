@@ -11,10 +11,15 @@ public class StringCalculator
         }
         else if(numbers.length() == 1) // If we have 1 value we have to return the same values we get
         {
-            return Integer.parseInt(numbers);
-        }else // If we have 2 values we have to return sum
+            return Integer.parseInt(numbers); // return the same value what we get on input
+        }else // If we have more then 1 value we have to return sum of them
         {
-            return Integer.parseInt(charstab[0]) + Integer.parseInt(charstab[1]); // adding 2 input values
+            int sum = 0;
+            for (int i = 0; i < charstab.length; i++)
+            {
+                sum += Integer.parseInt(charstab[i]);  // adding the following numbers we get on input
+            }
+            return sum; // return sum of input numbers
         }
 
 

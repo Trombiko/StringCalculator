@@ -1,8 +1,13 @@
-
 public class StringCalculator {
 
-    public static int Add(String numbers) {
+    public static int Add(String numbers) throws Exception {
         String[] charstab = numbers.split(";|,|\n"); // numbers spliting by ',' or '\n' or ';'
+        String[] negativetab = numbers.split("-|,-");
+
+        if(numbers.startsWith("-")||numbers.contains("-")||numbers.contains(",-"))
+        {
+            throw new Exception("Negatives not allowed"); // Expecction if we have negative number
+        }
 
         if(numbers.startsWith("//")||numbers.startsWith("\n")) // if it starts with '//' or '\n' do that
         {
@@ -16,12 +21,10 @@ public class StringCalculator {
             }
             return suma;
         }else {
-
-
             if (numbers.isEmpty())  // Checking if we have empty string that we return 0
             {
                 return 0;
-            } else if (numbers.length() == 1) // If we have 1 value we have to return the same values we get
+            } else if (numbers.length() == 1  && Integer.parseInt(numbers) >= 0) // If we have 1 value we have to return the same values we get
             {
                 return Integer.parseInt(numbers); // return the same value what we get on input
             } else // If we have more then 1 value we have to return sum of them
@@ -33,7 +36,5 @@ public class StringCalculator {
                 return sum; // return sum of input numbers
             }
         }
-
-
     }
 }

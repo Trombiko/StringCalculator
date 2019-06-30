@@ -55,10 +55,16 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void testDifferentLengthOfDelimiter() throws Exception//Step 7 - testing different length of delimiter
+    public void testDifferentLengthOfDelimiter() throws Exception // testing different length of delimiters
     {
         assertEquals(stringCalculator.Add("//[!!!]\n2!!!8!!!10"),20); // Check our DELIMITER(3 chars) in [] is correct
         assertEquals(stringCalculator.Add("//[%%%%]\n20%%%%10%%%%25"),55); // Check our DELIMITER(4 chars) in [] is correct
+    }
+
+    @Test
+    public void testMoreThanOneDemiliter() throws Exception // More than one delimiter in use
+    {
+        assertEquals(stringCalculator.Add("//[!!!][%%%]\n2!!!8%%%10"),20); // Check 2 delimiters
     }
 
 }

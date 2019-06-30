@@ -62,9 +62,10 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void testMoreThanOneDemiliter() throws Exception // More than one delimiter in use
+    public void testMoreThanOneDemiliter() throws Exception // More than two delimiter in use
     {
-        assertEquals(stringCalculator.Add("//[!!!][%%%]\n2!!!8%%%10"),20); // Check 2 delimiters
+        assertEquals(stringCalculator.Add("//[!!!][%%%]['''']\n2!!!8%%%10''''12"),32); // Checking 3 delimiters
+        assertEquals(stringCalculator.Add("//[!!!][%%%][''''][@@]\n1@@2!!!8%%%10''''12"),33); // Checking 4 delimiters with different length
     }
 
 }

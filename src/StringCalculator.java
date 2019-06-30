@@ -1,10 +1,10 @@
 public class StringCalculator {
 
-
-
-    public static int Add(String numbers) throws Exception {
+    public static int Add(String numbers) throws Exception
+    {
         String delimiter = ";|,|\n"; // numbers will be split by ',' or '\n' or ';' using DELIMETER
         String[] charstab = numbers.split(delimiter);
+
 
         String negatives = ""; // make a new empty string
         for (int i = 0; i < charstab.length; i++)
@@ -12,6 +12,8 @@ public class StringCalculator {
             if (charstab[i].contains("-")) // when we get negative number we add it to new string
                 negatives += "," + charstab[i]; // add to string
         }
+
+
 
         if (!negatives.isEmpty()) // if negative inputs are in String
             throw new IllegalArgumentException("Negatives not allowed: " + negatives.substring(1)); // show in Expection negative numbers
@@ -31,11 +33,25 @@ public class StringCalculator {
             String part2 = parts[1]; // we need second[1] part, because there are numbers
 
 
+
             if(numbers.contains("][")) // check if we have more than 1 DELIMITER
             {
-                delimiter = delimiter + "|" + numbers.substring(numbers.indexOf("][") + 2, numbers.indexOf("\n")- 1); // Add second delimiter
-            }
+                int[] decimitersTable = new int[20];
+                int stepUp = 0;
 
+                for(int i = 0; i < numbers.length(); i++) // looking for decimiters
+                {
+                    if (numbers.charAt(i) == ']') // if following char is ']' appears so number is saved
+                    {
+                        decimitersTable[stepUp] = i;
+                        stepUp++;
+                    }
+                }
+                for(int j = 1; j < stepUp ; j++)
+                {
+                    delimiter += "|" + numbers.substring(decimitersTable[j - 1] + 2, decimitersTable[j]); // add new decimiters
+                }
+            }
             String[] charstab2 = part2.split(delimiter); // find numbers spliting by DELIMITERS
 
 
@@ -46,7 +62,7 @@ public class StringCalculator {
                 suma += Integer.parseInt(charstab2[j]);  // adding the following numbers we get on input
             }
             return suma; // return sum of input numbers
-        } else
+        }else
             {
                 if (numbers.isEmpty())  // Checking if we have empty string that we return 0
                 {
